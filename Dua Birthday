@@ -1,0 +1,66 @@
+<!DOCTYPE html><html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Happy Birthday, Dua! 🎂</title>
+  <style>
+    body {
+      margin: 0;
+      background: #000;
+      color: #fff;
+      font-family: Arial, sans-serif;
+      overflow: hidden;
+      text-align: center;
+    }
+    h1 {
+      font-size: 3em;
+      margin-top: 20vh;
+      animation: glow 2s infinite alternate, floatName 4s ease-in-out infinite;
+    }
+    @keyframes glow {
+      from { text-shadow: 0 0 10px #ff69b4; }
+      to { text-shadow: 0 0 20px #ff1493, 0 0 30px #ff69b4; }
+    }
+    @keyframes floatName {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-10px); }
+    }
+    .balloon, .rose {
+      position: absolute;
+      bottom: -100px;
+      animation: floatUp 10s linear infinite;
+    }
+    .balloon {
+      width: 50px; height: 70px;
+      background: radial-gradient(circle at 30% 30%, #fff, #ff69b4);
+      border-radius: 50% 50% 45% 45%;
+    }
+    .rose {
+      width: 40px; height: 40px;
+      background: url('https://upload.wikimedia.org/wikipedia/commons/thumb/1/15/Red_rose.svg/1024px-Red_rose.svg.png') no-repeat center/contain;
+    }
+    @keyframes floatUp {
+      0% { transform: translateY(0) scale(1); opacity: 1; }
+      100% { transform: translateY(-110vh) scale(0.5); opacity: 0; }
+    }
+  </style>
+</head>
+<body>
+  <h1>Happy Birthday, Dua! 🎉</h1>
+  <audio autoplay loop>
+    <source src="https://cdn.pixabay.com/audio/2022/02/16/audio_birthday_song.mp3" type="audio/mpeg">
+  </audio>
+  <script>
+    function createElement(type, className, delay) {
+      const el = document.createElement('div');
+      el.className = className;
+      el.style.left = Math.random() * 100 + 'vw';
+      el.style.animationDelay = delay + 's';
+      document.body.appendChild(el);
+      setTimeout(() => el.remove(), 10000);
+    }
+    setInterval(() => createElement('div', 'balloon', Math.random() * 5), 500);
+    setInterval(() => createElement('div', 'rose', Math.random() * 5), 800);
+  </script>
+</body>
+</html>
